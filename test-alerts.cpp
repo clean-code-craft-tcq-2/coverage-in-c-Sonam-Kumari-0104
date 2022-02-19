@@ -13,5 +13,5 @@ TEST_CASE("Evaluate the breach type and send alerts") {
   AlertTarget a1 = TO_EMAIL;
   BatteryCharacter b;
   b.coolingType = PASSIVE_COOLING;
- REQUIRE(checkAndAlert( a1, b.coolingType, 40));
+ REQUIRE(checkAndAlert( a1, b, 40));
 }
