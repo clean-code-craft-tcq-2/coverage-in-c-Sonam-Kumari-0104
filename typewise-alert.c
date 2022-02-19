@@ -11,25 +11,28 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   return NORMAL;
 }
 
+Limits PASSIVE_COOLING(CoolingType coolingType){
+  Limits limit;
+  limit.lowerlimit = 0;
+  limit.upperLimit = 35;
+}
+
+Limits HI_ACTIVE_COOLING(CoolingType coolingType){
+  Limits limit;
+  limit.lowerlimit = 0;
+  limit.upperLimit = 45;
+}
+
+Limits MED_ACTIVE_COOLING(CoolingType coolingType){
+  Limits limit;
+  limit.lowerlimit = 0;
+  limit.upperLimit = 40;
+}
+
 BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
-  int lowerLimit;
-  int upperLimit;
-  switch(coolingType) {
-    case PASSIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 35;
-      break;
-    case HI_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 45;
-      break;
-    case MED_ACTIVE_COOLING:
-      lowerLimit = 0;
-      upperLimit = 40;
-      break;
-  }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+  Limits getLimit = coolingType();
+  return inferBreach(temperatureInC, getLimit.lowerLimit, getLimit.upperLimit);
 }
 
 void checkAndAlert(
