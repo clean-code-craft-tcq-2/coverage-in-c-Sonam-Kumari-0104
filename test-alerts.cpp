@@ -10,5 +10,7 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("Evaluate the breach type and send alerts") {
- REQUIRE(checkAndAlert( "TO_EMAIL", "PASSIVE_COOLING", 40));
+  AlertTarget a1 = TO_EMAIL;
+  CoolingType c = PASSIVE_COOLING;
+ REQUIRE(checkAndAlert( a1, c, 40));
 }
