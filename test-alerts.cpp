@@ -25,17 +25,12 @@ TEST_CASE("Classify the cooling type and infer the breach") {
 
 TEST_CASE("Evaluate the breach type and send alerts") {
   AlertTarget a1 = TO_EMAIL;
-  BatteryCharacter b;
-  b.coolingType = PASSIVE_COOLING;
-  checkAndAlert( a1, b, 40);
-  
   AlertTarget a2 = TO_CONTROLLER;
   BatteryCharacter b;
   b.coolingType = PASSIVE_COOLING;
-  checkAndAlert( a1, b, -2);
+  checkAndAlert( a1, b, 40);
+   
+  checkAndAlert( a2, b, -2);
   
-   AlertTarget a2 = TO_CONTROLLER;
-  BatteryCharacter b;
-  b.coolingType = PASSIVE_COOLING;
   checkAndAlert( a1, b, 20);
 }
