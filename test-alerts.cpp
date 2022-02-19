@@ -8,3 +8,7 @@ TEST_CASE("infers the breach according to limits") {
   REQUIRE(inferBreach(20, 10, 15) == TOO_HIGH);
   REQUIRE(inferBreach(15, 10, 20) == NORMAL);
 }
+
+TEST_CASE("Evaluate the breach type and send alerts") {
+ REQUIRE(checkAndAlert( "TO_EMAIL", "PASSIVE_COOLING", 40));
+}
