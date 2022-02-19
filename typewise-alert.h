@@ -17,6 +17,7 @@ typedef struct {
   int lowerLimit;
 } Limits;
 
+//string Limits[3][3] = {
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
