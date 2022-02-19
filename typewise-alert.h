@@ -13,11 +13,11 @@ typedef enum {
 } BreachType;
 
 typedef struct {
-  int upperLimit;
-  int lowerLimit;
+  CoolingType coolingType;
+  int upperlimit;
+  int lowerlimit;
 } Limits;
 
-//string Limits[3][3] = {
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
