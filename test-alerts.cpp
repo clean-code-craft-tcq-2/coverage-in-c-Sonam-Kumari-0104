@@ -28,4 +28,14 @@ TEST_CASE("Evaluate the breach type and send alerts") {
   BatteryCharacter b;
   b.coolingType = PASSIVE_COOLING;
   checkAndAlert( a1, b, 40);
+  
+  AlertTarget a2 = TO_CONTROLLER;
+  BatteryCharacter b;
+  b.coolingType = PASSIVE_COOLING;
+  checkAndAlert( a1, b, -2);
+  
+   AlertTarget a2 = TO_CONTROLLER;
+  BatteryCharacter b;
+  b.coolingType = PASSIVE_COOLING;
+  checkAndAlert( a1, b, 20);
 }
