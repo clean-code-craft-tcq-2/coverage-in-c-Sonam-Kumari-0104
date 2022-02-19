@@ -13,20 +13,23 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 
 Limits PASSIVE_COOLING(CoolingType coolingType){
   Limits limit;
-  limit.lowerlimit = 0;
+  limit.lowerLimit = 0;
   limit.upperLimit = 35;
+  return limit;
 }
 
 Limits HI_ACTIVE_COOLING(CoolingType coolingType){
   Limits limit;
-  limit.lowerlimit = 0;
+  limit.lowerLimit = 0;
   limit.upperLimit = 45;
+  return limit;
 }
 
 Limits MED_ACTIVE_COOLING(CoolingType coolingType){
   Limits limit;
-  limit.lowerlimit = 0;
+  limit.lowerLimit = 0;
   limit.upperLimit = 40;
+  return limit;
 }
 
 BreachType classifyTemperatureBreach(
