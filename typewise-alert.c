@@ -4,7 +4,7 @@
 int limits[3][3] = {{0,35}, {0,45}, {0,40}};
 char alertMsg[3][100] = {"Hi, the temperature is Normal\n"
                          "Hi, the temperature is too low\n",
-                         "Hi, the temperature is too High\n"}
+                         "Hi, the temperature is too High\n"};
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
