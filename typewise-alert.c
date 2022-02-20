@@ -2,6 +2,9 @@
 #include <stdio.h>
 
 int limits[3][3] = {{0,35}, {0,45}, {0,40}};
+char alertMsg[3][100] = {"Hi, the temperature is Normal\n"
+                         "Hi, the temperature is too low\n",
+                         "Hi, the temperature is too High\n"}
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
@@ -44,16 +47,6 @@ void sendToController(BreachType breachType) {
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
-  switch(breachType) {
-    case TOO_LOW:
       printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
-      break;
-    case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
-      break;
-    case NORMAL:
-      break;
-  }
+      printf("%s", alertMsg[breachType]);
 }
