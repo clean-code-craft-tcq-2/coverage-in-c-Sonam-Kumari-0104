@@ -52,5 +52,5 @@ void sendToController(BreachType breachType) {
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
-  printRecepientAndAlertMsg(recepient, breachType);
+  printRecepientAndAlertMsgForEmail(recepient, breachType);
 }
