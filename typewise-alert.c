@@ -1,10 +1,10 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-int limits[3][3] = {{0,35}, {0,45}, {0,40}};
-char alertMsg[3][100] = {"Hi, the temperature is Normal\n"
-                         "Hi, the temperature is too low\n",
-                         "Hi, the temperature is too High\n"};
+int limits[NUMBEROFCOOLINGTYPES][NUMBEROFTEMPLIMITS] = {{0,35}, {0,45}, {0,40}};
+char alertMsgForEmail[NUMBEROFBREACHTYPES][100] = {"Hi, the temperature is Normal\n"
+                                                   "Hi, the temperature is too low\n",
+                                                   "Hi, the temperature is too High\n"};
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
@@ -40,6 +40,11 @@ void checkAndAlert(
   }
 }
 
+void printRecepientAndAlertMsg(const char* receiver, char alertMsg[]){
+  printf("To: %s\n", receiver);
+  printf("%s", alertMsg[breachType]);
+}
+
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
@@ -47,6 +52,5 @@ void sendToController(BreachType breachType) {
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
-      printf("To: %s\n", recepient);
-      printf("%s", alertMsg[breachType]);
+  printRecepientAndAlertMsg(recepient, alertMsgForEmail[breachType]);
 }
