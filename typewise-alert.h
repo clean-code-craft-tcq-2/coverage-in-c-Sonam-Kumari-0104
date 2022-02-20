@@ -1,5 +1,8 @@
 #pragma once
 
+#define LOWERLIMITIDX 0
+#define UPPERLIMITIDX 1
+
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
