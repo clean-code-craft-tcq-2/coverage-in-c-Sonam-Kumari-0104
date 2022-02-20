@@ -38,7 +38,7 @@ BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
   int lowerLimit = limits[coolingType][LOWERLIMITIDX];
   int upperLimit = limits[coolingType][UPPERLIMITIDX];
-  return inferBreach(temperatureInC, getLimit.lowerLimit, getLimit.upperLimit);
+  return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
 void checkAndAlert(
