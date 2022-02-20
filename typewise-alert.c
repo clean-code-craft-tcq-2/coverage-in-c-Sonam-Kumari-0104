@@ -40,7 +40,7 @@ void checkAndAlert(
   }
 }
 
-void printRecepientAndAlertMsg(const char* receiver, char alertMsg[]){
+void printRecepientAndAlertMsgForEmail(const char* receiver, char alertMsg[], BreachType breachType){
   printf("To: %s\n", receiver);
   printf("%s", alertMsg[breachType]);
 }
@@ -52,5 +52,5 @@ void sendToController(BreachType breachType) {
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
-  printRecepientAndAlertMsg(recepient, alertMsgForEmail[breachType]);
+  printRecepientAndAlertMsg(recepient, alertMsgForEmail[breachType], breachType);
 }
