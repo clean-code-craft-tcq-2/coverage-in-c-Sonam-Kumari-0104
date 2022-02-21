@@ -28,10 +28,9 @@ BreachType classifyTemperatureBreach(
 
 void checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
-
+  
     BreachType breachType = classifyTemperatureBreach( batteryChar.coolingType, temperatureInC);
     AlertTargetfp[alertTarget](breachType);
-  }
 }
 
 void printRecepientAndAlertMsgForEmail(const char* receiver, BreachType breachType){
