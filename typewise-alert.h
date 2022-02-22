@@ -13,6 +13,9 @@
 #define MED_ACTIVE_COOLING_LOWER_LIMIT 0
 #define MED_ACTIVE_COOLING_UPPER_LIMIT 40
 
+extern int controllerAlertCntr;
+extern int emailAlertCntr;
+
 typedef enum {
   PASSIVE_COOLING,
   HI_ACTIVE_COOLING,
