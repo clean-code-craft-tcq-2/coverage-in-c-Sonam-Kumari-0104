@@ -33,12 +33,15 @@ TEST_CASE("Evaluate the breach type and send alerts") {
   alert_target = TO_CONTROLLER;
   batteryChracteristics.coolingType = PASSIVE_COOLING;
   checkAndAlert( alert_target, batteryChracteristics, -2);
+  assert(controllerAlertCntr==1);
   
   alert_target = TO_EMAIL;
   batteryChracteristics.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert( alert_target, batteryChracteristics, 20);
+  assert(emailAlertCntr==2);
   
   alert_target = TO_CONTROLLER;
   batteryChracteristics.coolingType = HI_ACTIVE_COOLING;
-  checkAndAlert( alert_target, batteryChracteristics, 20);
+  checkAndAlert( alert_target, batteryChracteristics, 50);
+  assert(controllerAlertCntr==2);
 }
