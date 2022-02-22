@@ -8,6 +8,8 @@ char alertMsgForEmail[NUMBER_OF_BREACH_TYPES][100] = {"Hi, the temperature is No
                                                    "Hi, the temperature is too low\n",
                                                    "Hi, the temperature is too High\n"};
 void (*AlertTargetfp[NUMBER_OF_ALERT_TARGETS])(BreachType) = {sendToController, sendToEmail};
+int controllerAlertCntr = 0;
+int emailAlertCntr = 0;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
@@ -41,9 +43,11 @@ void printRecepientAndAlertMsgForEmail(const char* receiver, BreachType breachTy
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  controllerAlertCntr+=1;
 }
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
   printRecepientAndAlertMsgForEmail(recepient, breachType);
+  emailAlertCntr+=1;
 }
